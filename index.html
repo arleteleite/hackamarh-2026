@@ -123,8 +123,8 @@
                 href="https://docs.google.com/forms/d/e/1FAIpQLSfzoaxztq3V9wMM575zS2fjt7SglZ9HOFFs_gyHGCuhg8EYyQ/viewform"
                 target="_blank"
                 class="btn btn--neon btn--large hero__btn"
-                >INSCREVA-SE AGORA <i class="fa-solid fa-arrow-right"></i
-              ></a>
+                >INSCREVA-SE
+              </a>
             </div>
           </div>
 
@@ -161,7 +161,7 @@
 
       <!-- SEÇÃO SOBRE -->
       <section class="section sobre" id="sobre" data-aos="fade-up">
-        <div class="section__container text-center glass-panel">
+        <div class="section__container text-center">
           <h2 class="section__title">
             Por que <span class="text-neon">Participar?</span>
           </h2>
@@ -228,7 +228,11 @@
 
       <!-- SEÇÃO DESAFIOS -->
       <section class="section desafios" id="desafios">
-        <div class="section__container">
+        <!-- Película escura para garantir a leitura do texto sobre a imagem de fundo -->
+        <div class="desafios__overlay"></div>
+
+        <!-- O z-index garante que o conteúdo fique por cima do fundo -->
+        <div class="section__container" style="position: relative; z-index: 2">
           <div class="section__header" data-aos="fade-up">
             <p class="section__kicker">DESAFIOS DO HACKAMARH</p>
             <h2 class="section__title text-left">
@@ -236,47 +240,62 @@
             </h2>
           </div>
 
+          <!-- INÍCIO DO GRID DE CARDS -->
           <div class="grid-desafios">
+            <!-- CARD EIXO 1 -->
             <div class="desafio-card glass-panel" data-aos="fade-right">
               <div
-                class="desafio-card__bg"
+                class="desafio-card__content text-left"
                 style="
-                  background-image: url(&quot;https://picsum.photos/600/400?nature&quot;);
+                  background-image: url('/hackamarh-2026/assets/img/planta_1.png');
                 "
-              ></div>
-              <div class="desafio-card__content">
-                <span class="desafio-card__badge">EIXO 01</span>
-                <h3 class="desafio-card__title">
-                  Acesso ao Financiamento e Gestão de Impacto (JREDD+)
-                </h3>
-                <p class="desafio-card__text">
-                  Democratizar o acesso aos fundos de carbono e garantir
-                  transparência na execução de projetos ambientais com fluxos
-                  simples de monitoramento.
-                </p>
+              >
+                <div class="desafio-card__text-box">
+                  <span class="desafio-card__badge">EIXO 01</span>
+                  <h3 class="desafio-card__title">
+                    Acesso ao Financiamento e Gestão de Impacto (JREDD+)
+                  </h3>
+                  <p class="desafio-card__text">
+                    Democratizar o acesso aos fundos de carbono e garantir
+                    transparência na execução de projetos ambientais com fluxos
+                    simples de monitoramento.
+                  </p>
+                </div>
               </div>
             </div>
+
+            <!-- CARD EIXO 2 -->
             <div class="desafio-card glass-panel" data-aos="fade-left">
               <div
-                class="desafio-card__bg"
+                class="desafio-card__content text-left"
                 style="
-                  background-image: url(&quot;https://picsum.photos/600/400?drone&quot;);
+                  background-image: url('/hackamarh-2026/assets/img/drone.png');
                 "
-              ></div>
-              <div class="desafio-card__content">
-                <span class="desafio-card__badge">EIXO 02</span>
-                <h3 class="desafio-card__title">
-                  Restauração Ecológica e Monitoramento de Áreas
-                </h3>
-                <p class="desafio-card__text">
-                  Melhorar o acompanhamento e a efetividade das áreas em
-                  recuperação ambiental no Estado, utilizando evidências e
-                  alertas visuais de risco.
-                </p>
+              >
+                <div class="desafio-card__text-box">
+                  <span class="desafio-card__badge">EIXO 02</span>
+                  <h3 class="desafio-card__title">
+                    Restauração Ecológica e Monitoramento de Áreas
+                  </h3>
+                  <p class="desafio-card__text">
+                    Melhorar o acompanhamento e a efetividade das áreas em
+                    recuperação ambiental no Estado, utilizando evidências e
+                    alertas visuais de risco.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
+          <!-- FECHAMENTO DA DIV "grid-desafios" (O botão precisa ficar abaixo desta linha!) -->
+
+          <!-- NOVO BOTÃO CENTRALIZADO -->
+          <div class="desafios__actions" data-aos="fade-up">
+            <a href="#videos" class="btn btn--outline btn--large">
+              Entenda os problemas <i class="fa-solid fa-arrow-down"></i>
+            </a>
+          </div>
         </div>
+        <!-- FECHAMENTO DA DIV "section__container" (Que estava faltando) -->
       </section>
 
       <!-- SEÇÃO VÍDEOS -->
@@ -335,113 +354,114 @@
         </div>
       </section>
 
-      <!-- SEÇÃO PREMIAÇÃO -->
-      <section class="section premiacao" id="premiacao">
-        <div class="section__container">
-          <div class="section__header text-center" data-aos="fade-up">
-            <p class="section__kicker">PREMIAÇÃO</p>
-            <h2 class="section__title">
-              As 5 melhores equipes serão
-              <span class="text-neon">premiadas!</span>
-            </h2>
-          </div>
+      <!-- SEÇÃO MESCLADA: CRONOGRAMA + PREMIAÇÃO -->
+    <section class="section cronograma-premiacao" id="cronograma">
+      
+      <!-- Película escura para a imagem de fundo -->
+      <div class="cronograma__overlay"></div>
 
-          <div class="podio" data-aos="zoom-in" data-aos-delay="200">
-            <!-- 4º LUGAR -->
-            <div class="podio__item podio__item--quarto">
-              <p class="podio__posicao">4º LUGAR</p>
-              <p class="podio__valor">R$ 3.000</p>
-              <div class="podio__base glass-panel">4</div>
-            </div>
-            <!-- 2º LUGAR -->
-            <div class="podio__item podio__item--prata">
-              <p class="podio__posicao">2º LUGAR</p>
-              <p class="podio__valor">R$ 8.000</p>
-              <div class="podio__base glass-panel">2</div>
-            </div>
-            <!-- 1º LUGAR -->
-            <div class="podio__item podio__item--ouro">
-              <p class="podio__posicao text-neon">1º LUGAR</p>
-              <p class="podio__valor text-neon">R$ 12.000</p>
-              <div class="podio__base glass-panel">
-                1<i class="fa-solid fa-trophy podium-trophy"></i>
-              </div>
-            </div>
-            <!-- 3º LUGAR -->
-            <div class="podio__item podio__item--bronze">
-              <p class="podio__posicao">3º LUGAR</p>
-              <p class="podio__valor">R$ 5.000</p>
-              <div class="podio__base glass-panel">3</div>
-            </div>
-            <!-- 5º LUGAR -->
-            <div class="podio__item podio__item--quinto">
-              <p class="podio__posicao">5º LUGAR</p>
-              <p class="podio__valor">R$ 2.000</p>
-              <div class="podio__base glass-panel">5</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- SEÇÃO CRONOGRAMA -->
-      <section class="section cronograma" id="cronograma">
-        <div class="section__container">
-          <div class="section__header text-center" data-aos="fade-up">
+      <!-- Contêiner dividido em 2 colunas -->
+      <div class="section__container grid-duplo" style="position: relative; z-index: 2;">
+        
+        <!-- LADO ESQUERDO: CRONOGRAMA -->
+        <div class="coluna-cronograma" data-aos="fade-right">
+          <div class="section__header text-left">
             <p class="section__kicker">CRONOGRAMA OFICIAL</p>
-            <h2 class="section__title">
-              Datas <span class="text-neon">Importantes</span>
-            </h2>
+            <h2 class="section__title">Datas <span class="text-neon">Importantes</span></h2>
           </div>
 
-          <div class="timeline" data-aos="fade-up" data-aos-delay="200">
+          <div class="timeline">
             <div class="timeline__item">
               <div class="timeline__date">30/04/2026</div>
-              <div class="timeline__content glass-panel">
-                Publicação do Edital Conjunto
-              </div>
+              <div class="timeline__content glass-panel">Publicação do Edital Conjunto</div>
             </div>
             <div class="timeline__item">
               <div class="timeline__date">01 a 21/05/2026</div>
-              <div class="timeline__content glass-panel">
-                Período de Inscrições Online
-              </div>
+              <div class="timeline__content glass-panel">Período de Inscrições Online</div>
             </div>
             <div class="timeline__item">
               <div class="timeline__date">25/05/2026</div>
-              <div class="timeline__content glass-panel">
-                Homologação Oficial das Equipes
-              </div>
+              <div class="timeline__content glass-panel">Homologação Oficial das Equipes</div>
             </div>
             <div class="timeline__item timeline__item--highlight">
               <div class="timeline__date text-neon">29 a 31/05/2026</div>
-              <div class="timeline__content glass-panel border-neon">
-                Maratona HACKAMARH (Presencial)
-              </div>
+              <div class="timeline__content glass-panel border-neon">Maratona HACKAMARH (Presencial)</div>
             </div>
             <div class="timeline__item">
               <div class="timeline__date">A Definir</div>
-              <div class="timeline__content glass-panel">
-                Cerimônia de Premiação (Oscar do ICMS Ecológico)
+              <div class="timeline__content glass-panel">Cerimônia de Premiação</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LADO DIREITO: PREMIAÇÃO -->
+        <div class="coluna-premiacao" data-aos="fade-left">
+          <div class="section__header text-center">
+            <p class="section__kicker">PREMIAÇÃO</p>
+            <h2 class="section__title">As 5 melhores equipes serão <span class="text-neon">premiadas!</span></h2>
+          </div>
+
+          <div class="podio">
+            <div class="podio__item podio__item--quarto">
+              <p class="podio__posicao">4º LUGAR</p>
+              <p class="podio__valor">R$ 3.000</p>
+              <div class="podio__base">
+                <div class="podio__coroa"><i class="fa-solid fa-award"></i><span class="podio__numero">4</span></div>
+              </div>
+            </div>
+            <div class="podio__item podio__item--prata">
+              <p class="podio__posicao">2º LUGAR</p>
+              <p class="podio__valor">R$ 8.000</p>
+              <div class="podio__base">
+                <div class="podio__coroa"><i class="fa-solid fa-award"></i><span class="podio__numero">2</span></div>
+              </div>
+            </div>
+            <div class="podio__item podio__item--ouro">
+              <p class="podio__posicao text-neon">1º LUGAR</p>
+              <p class="podio__valor text-neon">R$ 12.000</p>
+              <div class="podio__base">
+                <div class="podio__coroa"><i class="fa-solid fa-award"></i><span class="podio__numero">1</span></div>
+              </div>
+            </div>
+            <div class="podio__item podio__item--bronze">
+              <p class="podio__posicao">3º LUGAR</p>
+              <p class="podio__valor">R$ 5.000</p>
+              <div class="podio__base">
+                <div class="podio__coroa"><i class="fa-solid fa-award"></i><span class="podio__numero">3</span></div>
+              </div>
+            </div>
+            <div class="podio__item podio__item--quinto">
+              <p class="podio__posicao">5º LUGAR</p>
+              <p class="podio__valor">R$ 2.000</p>
+              <div class="podio__base">
+                <div class="podio__coroa"><i class="fa-solid fa-award"></i><span class="podio__numero">5</span></div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+
+      </div>
+    </section>
 
       <!-- CTA FINAL -->
       <section class="section cta-final" data-aos="fade-up">
-        <div class="section__container glass-panel cta-final__container">
-          <div class="cta-final__text">
-            <h2 class="section__title text-left">
-              Pronto para <span class="text-neon">inovar</span><br />
-              e gerar <span class="text-neon">impacto?</span>
-            </h2>
-            <p>
-              As inscrições são gratuitas e realizadas de forma individual.
-              Defina seu perfil (Tecnologia, Design ou Negócios) e venha
-              transformar ideias em soluções reais.
-            </p>
-          </div>
+        <!-- O efeito de vidro agora ficará no CSS da seção -->
+        <div class="section__container cta-final__container">
+          
+          <!-- BLOCO 1: Título na Esquerda -->
+          <h2 class="section__title text-left cta-final__title">
+            Pronto para <span class="text-neon">inovar</span><br />
+            e gerar <span class="text-neon">impacto?</span>
+          </h2>
+          
+          <!-- BLOCO 2: Texto Central com a Borda Vertical -->
+          <p class="cta-final__desc">
+            As inscrições são gratuitas e realizadas de forma individual.<br>
+            Defina seu perfil (Tecnologia, Design ou Negócios) e venha
+            transformar ideias em soluções reais.
+          </p>
+
+          <!-- BLOCO 3: Botão e Vagas na Direita -->
           <div class="cta-final__action">
             <a
               href="https://docs.google.com/forms/d/e/1FAIpQLSfzoaxztq3V9wMM575zS2fjt7SglZ9HOFFs_gyHGCuhg8EYyQ/viewform"
@@ -453,9 +473,9 @@
               VAGAS LIMITADAS PARA 50 PARTICIPANTES!
             </p>
           </div>
+
         </div>
       </section>
-    </main>
 
     <!-- RODAPÉ -->
     <footer class="footer glass-panel">

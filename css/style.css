@@ -15,7 +15,7 @@
   --glass-border: rgba(255, 255, 255, 0.08);
   --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
 
-  --font-principal: "Poppins", sans-serif;
+  --font-principal: 'Poppins', sans-serif;
   --radius-padrao: 1.6rem;
   --transicao: all 0.3s ease;
 }
@@ -239,9 +239,10 @@ img {
   display: flex;
   align-items: center;
   padding-top: 8rem;
-  background-image: url("/assets/img/plano_fundo_hero6.png");
+  /* background-image: url('/hackamarh-2026/assets/img/plano_fundo_hero6.png'); */
+  background-image: url('/hackamarh-2026/assets/img/lobo_guara.png');
   background-size: cover;
-  background-position: center top 90%;
+  background-position: center bottom -20%;
   background-repeat: no-repeat;
 }
 
@@ -322,28 +323,51 @@ img {
 
 .hero__info {
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   justify-content: flex-start; /* Mantém os ícones alinhados à esquerda */
   gap: 3.2rem;
   margin-bottom: 4rem;
   font-size: 1.4rem;
   font-weight: 500;
   letter-spacing: 0.1rem;
+  width: 100%;
+  max-width: 52rem;
 }
+
 .hero__info-item {
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex: 1;
   gap: 1rem;
   color: var(--white);
+  background-color: rgba(11, 15, 12, 0.25);
+  border: 0.1px solid var(--neon-green);
+  /* box-shadow: var(--neon-glow); */
+  border-radius: var(--radius-padrao);
+  padding: 1.2rem 2rem;
+}
+
+.hero__info-item i {
+  font-size: 2.9rem; /* Trava o ícone no tamanho exato da fonte do texto */
+  display: flex;
+  align-items: center;
 }
 
 .hero__actions {
   display: flex;
   gap: 2rem;
   justify-content: flex-start; /* Mantém o botão alinhado à esquerda */
+  width: 100%;
+  max-width: 52rem;
 }
 
-/* Nova Sub-seção apenas para centralizar o relógio */
+.hero__btn {
+  width: calc(50% - 1.6rem);
+  justify-content: center;
+}
+
+/* Sub-seção apenas para centralizar o relógio */
 .hero__countdown-wrapper {
   display: flex;
   width: 100%;
@@ -390,7 +414,7 @@ img {
 
 /* Mantendo o seu separador de Barra Reta (|) */
 .countdown__item:not(:last-child)::after {
-  content: "|";
+  content: '|';
   position: absolute;
   right: -5vw;
   transform: translateX(50%) translateY(-50%);
@@ -414,18 +438,49 @@ img {
 }
 
 /* ===== SOBRE ===== */
+.sobre {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 8rem 2rem;
+  background-color: rgba(11, 15, 12, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  /* Linha neon no topo para marcar visualmente o início exato da caixa */
+  /* border-top: 0.5px solid var(--neon-green);
+  border-bottom: 0.5px solid var(--glass-border); */
+}
 .sobre .section__container {
-  padding: 6rem 4rem;
+  padding: 0;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 .sobre .section__text {
   font-size: 2rem;
   color: var(--text-main);
   font-weight: 300;
-  max-width: 900px;
+  max-width: 90rem;
   margin: 0 auto;
 }
 
 /* ===== REGRAS (CARDS) ===== */
+.regras .section__container {
+  display: flex;
+  align-items: center; /* Alinha o título e os cards pelo centro vertical [3] */
+  justify-content: space-between;
+  gap: 6rem; /* Espaço de distanciamento entre o texto e os cards [3] */
+}
+
+.regras .section__header {
+  flex: 1; /* Define que o cabeçalho ocupe 1 parte do espaço flexível [4] */
+  min-width: 32rem; /* Garante uma largura mínima para que o título não fique espremido */
+}
+
+.regras .grid-cards {
+  flex: 2.5;
+  margin-top: 0;
+  grid-template-columns: repeat(3, 1fr);
+}
 .grid-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
@@ -434,14 +489,21 @@ img {
 }
 .card {
   display: flex;
+  flex-flow: column;
   align-items: flex-start;
   gap: 2rem;
-  padding: 3.2rem;
+  padding: 3rem 2.4rem;
   transition: var(--transicao);
+  height: 100%;
 }
 .card:hover {
   border-color: var(--neon-green);
   transform: translateY(-0.5rem);
+}
+.card__content {
+  display: flex;
+  flex-flow: column;
+  gap: 1rem;
 }
 .card__icon-wrapper {
   width: 6.4rem;
@@ -468,12 +530,42 @@ img {
 }
 
 /* ===== DESAFIOS ===== */
+.desafios {
+  position: relative;
+}
+.desafios::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/hackamarh-2026/assets/img/fundo_simples.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: scaleX(-1);
+  z-index: 0;
+}
+
+/* Camada escura para não atrapalhar a leitura dos textos com o novo fundo */
+.desafios__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(11, 15, 12, 0.6);
+  z-index: 1;
+}
+
 .grid-desafios {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
   gap: 3.2rem;
   margin-top: 4.8rem;
 }
+
 .desafio-card {
   overflow: hidden;
   display: flex;
@@ -482,21 +574,30 @@ img {
   position: relative;
   border-color: transparent;
 }
+
 .desafio-card:hover {
   border-color: var(--neon-green);
   transform: scale(1.02);
 }
-.desafio-card__bg {
-  height: 20rem;
+
+.desafio-card__content {
+  padding: 4rem 3.2rem; /* Aumentamos um pouco o respiro interno */
+  flex-grow: 1;
+  text-align: left;
+
+  /* Configurações da imagem de fundo injetada pelo HTML */
   background-size: cover;
   background-position: center;
-  opacity: 0.7;
-  border-bottom: 1px solid var(--glass-border);
+  background-repeat: no-repeat;
+
+  /* Técnica de mesclagem para escurecer a foto e dar leitura ao texto */
+  background-color: rgba(11, 15, 12, 0.25);
+  background-blend-mode: multiply;
+
+  /* Garante que o fundo não vaze das bordas arredondadas do card */
+  border-radius: inherit;
 }
-.desafio-card__content {
-  padding: 3.2rem;
-  flex-grow: 1;
-}
+
 .desafio-card__badge {
   display: inline-block;
   padding: 0.4rem 1.2rem;
@@ -507,6 +608,7 @@ img {
   font-weight: 700;
   margin-bottom: 1.6rem;
 }
+
 .desafio-card__title {
   font-size: 2.4rem;
   color: var(--white);
@@ -516,6 +618,38 @@ img {
 .desafio-card__text {
   font-size: 1.6rem;
   color: var(--text-muted);
+}
+
+/* Organização do novo botão centralizado usando Flexbox */
+.desafios__actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 6rem;
+  width: 100%;
+}
+
+/* Garante a borda verde fixa e corrige a centralização */
+.desafios__actions .btn--outline {
+  border: 2px solid var(--neon-green); /* Borda verde visível permanentemente */
+  background-color: transparent; /* Fundo vazio */
+  color: var(--white); /* Cor do texto */
+  width: max-content; /* Remove qualquer esticamento, forçando o botão a ficar no centro */
+  transition: var(--transicao);
+}
+
+/* Efeito ao passar o mouse no botão */
+.desafios__actions .btn--outline:hover {
+  background-color: var(--neon-green); /* Preenche o botão de verde */
+  color: #0b0f0c; /* Deixa o texto escuro para dar um bom contraste com o fundo claro */
+  box-shadow: var(--neon-glow);
+}
+.desafio-card__text-box {
+  width: 100%;
+  max-width: 60%; /* Trava o crescimento do texto em exatos 50% do card */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 /* ===== VÍDEOS ===== */
@@ -562,155 +696,104 @@ img {
   color: var(--text-muted);
 }
 
-/* ===== PREMIAÇÃO (PÓDIO DARK) ===== */
-.podio {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  gap: 1.5rem;
-  margin-top: 6rem;
-  min-height: 45rem;
-}
-.podio__item {
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  width: 100%;
-  max-width: 18rem;
-  text-align: center;
-}
-.podio__posicao {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--text-muted);
-  letter-spacing: 0.1rem;
-  margin-bottom: 0.5rem;
-}
-.podio__valor {
-  font-size: 2.4rem;
-  font-weight: 800;
-  color: var(--white);
-  margin-bottom: 2rem;
-}
-.podio__base {
-  width: 100%;
-  border-radius: 1.6rem 1.6rem 0 0;
-  display: flex;
-  justify-content: center;
-  padding-top: 2rem;
-  color: rgba(255, 255, 255, 0.2);
-  font-size: 6rem;
-  font-weight: 800;
+/* ===== SEÇÃO MESCLADA (CRONOGRAMA + PREMIAÇÃO) ===== */
+.cronograma-premiacao {
   position: relative;
-  border-bottom: none;
+  background-image: url('/hackamarh-2026/assets/img/cronograma.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 10rem 2rem;
 }
 
-/* Tamanhos Pódio */
-.podio__item--ouro .podio__base {
-  height: 28rem;
-  border: 1px solid var(--neon-green);
-  box-shadow: inset 0 0 30px rgba(0, 255, 136, 0.1);
-  color: var(--neon-green-dim);
-}
-.podio__item--prata .podio__base {
-  height: 22rem;
-}
-.podio__item--bronze .podio__base {
-  height: 16rem;
-}
-.podio__item--quarto .podio__base {
-  height: 10rem;
-}
-.podio__item--quinto .podio__base {
-  height: 6rem;
-  font-size: 4rem;
-  padding-top: 0.5rem;
-}
-.podium-trophy {
-  position: absolute;
-  top: -3rem;
-  font-size: 4rem;
-  color: var(--neon-green);
-  text-shadow: var(--neon-glow);
+/* O Segredo do Lado a Lado: Grid com 2 frações iguais */
+.grid-duplo {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Divide o espaço em 50% e 50% automaticamente [1] */
+  gap: 4rem; /* Distância entre o cronograma e o pódio */
+  align-items: center; /* Alinha tudo ao centro da tela [3] */
 }
 
-/* ===== CRONOGRAMA (TIMELINE DARK) ===== */
-.timeline {
-  max-width: 80rem;
-  margin: 4.8rem auto 0;
-  position: relative;
+/* Ajustes finos para fazer o pódio de 5 barras caber em meia tela */
+.coluna-premiacao .podio {
+  gap: 0.8rem; /* Reduz o espaço entre as barras */
 }
-.timeline::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 2.4rem;
-  height: 100%;
-  width: 0.2rem;
-  background: var(--glass-border);
+.coluna-premiacao .podio__item {
+  max-width: 11rem; /* Encolhe levemente a largura da barra */
 }
-.timeline__item {
-  position: relative;
-  padding-left: 6.4rem;
-  margin-bottom: 4rem;
+.coluna-premiacao .podio__valor {
+  font-size: 1.8rem; /* Reduz as fontes dos valores para não vazar */
 }
-.timeline__item::before {
-  content: "";
-  position: absolute;
-  left: 1.6rem;
-  top: 1.6rem;
-  width: 1.8rem;
-  height: 1.8rem;
-  border-radius: 50%;
-  background: var(--bg-darker);
-  border: 0.2rem solid var(--text-muted);
-}
-.timeline__item--highlight::before {
-  background: var(--neon-green);
-  border-color: var(--neon-green);
-  box-shadow: var(--neon-glow);
-}
-.timeline__date {
-  font-weight: 700;
-  font-size: 1.6rem;
-  color: var(--text-muted);
-  margin-bottom: 1.2rem;
-}
-.timeline__content {
-  padding: 2.4rem;
-  font-size: 1.8rem;
-  font-weight: 500;
-  color: var(--white);
+.coluna-premiacao .podio__coroa {
+  transform: scale(
+    0.75
+  ); /* Escala as coroas de louro em 75% do tamanho original para evitar que batam umas nas outras */
+  top: -4rem; /* Reajusta a altura por causa da escala */
 }
 
 /* ===== CTA FINAL ===== */
+
+/* 1. SEÇÃO EM 100% DA TELA E BORDA COLADA */
+.cta-final {
+  width: 100%;
+  margin: 0; /* Zera qualquer margem externa para colar na seção de cima */
+  padding: 6rem 2rem;
+
+  /* Movendo o efeito de vidro para ocupar a tela toda */
+  background-color: rgba(11, 15, 12, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  /* Borda no topo que preenche de ponta a ponta sem bordas laterais */
+  border-top: 1px solid var(--neon-green);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+/* 2. ALINHAMENTO EM LINHA ÚNICA */
 .cta-final__container {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 6rem;
-  border-color: var(--neon-green);
+  align-items: center; /* Centraliza todos os itens pelo meio da linha vertical [3-5] */
+  justify-content: space-between; /* Distribui os itens para que ocupem os espaços nas extremidades e no meio [6] */
+  flex-wrap: nowrap; /* Trava os elementos em uma única linha, não deixando quebrar para baixo [2] */
+  gap: 4rem; /* Distância entre o título, o texto e o botão [7] */
+  padding: 0;
 }
-.cta-final__text {
-  max-width: 60rem;
+
+.cta-final__title {
+  margin: 0; /* Remove a margem padrão para manter o alinhamento central */
+  flex-shrink: 0; /* Impede que o título seja esmagado pela tela */
+  line-height: 1.2;
 }
-.cta-final__text p {
-  font-size: 1.8rem;
+
+/* 3. TEXTO COM O DIVISOR VERTICAL (|) */
+.cta-final__desc {
+  font-size: 1.6rem;
   color: var(--text-muted);
+  margin: 0;
+
+  /* Linha vertical separadora à esquerda do texto */
+  border-left: 2px solid var(--glass-border);
+  padding-left: 4rem; /* Distância entre a linha '|' e as palavras do texto */
+
+  flex: 1; /* Permite que o texto cresça e preencha livremente a área central */
 }
+
+/* 4. GRUPO DO BOTÃO */
 .cta-final__action {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: column; /* Empilha o botão em cima e as vagas embaixo [8] */
+  align-items: center; /* Centraliza as informações do botão horizontalmente [7, 9] */
   gap: 1.6rem;
+  flex-shrink: 0; /* Impede que o botão seja espremido */
 }
+
 .cta-final__vagas {
   font-size: 1.2rem;
   color: var(--neon-green);
   font-weight: 700;
   letter-spacing: 0.1rem;
+  text-align: center;
 }
-
 /* ===== FOOTER ===== */
 .footer {
   padding: 6.4rem 2rem 2.4rem;
