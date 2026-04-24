@@ -1324,4 +1324,132 @@ img {
   .timeline-moderna__item--destaque .timeline-moderna__card:hover {
     transform: translateY(-0.3rem);
   }
+  /* ==========================================================================
+   RESPONSIVIDADE COMPLETA PARA MOBILE E TELAS PEQUENAS
+   ========================================================================== */
+
+  /* -------------------------------------------
+   CELULARES PADRÕES (Até 480px)
+------------------------------------------- */
+  @media (max-width: 480px) {
+    /* 1. ESCALA GLOBAL (A MÁGICA DO REM) */
+    html {
+      /* Reduz a raiz para 50% (1rem = 8px). Tudo no site diminui magicamente! [1, 6] */
+      font-size: 50%;
+    }
+
+    /* 2. ESPAÇAMENTOS GERAIS DAS SEÇÕES */
+    .section {
+      /* Reduz o padding gigante de 10rem para focar no conteúdo no celular */
+      padding: 6rem 1.6rem;
+    }
+
+    .section__title {
+      font-size: 3.2rem;
+    }
+
+    /* 3. SEÇÃO HERO E CRONÔMETRO */
+    .hero__title {
+      font-size: 4rem; /* Evita que o título ocupe a tela inteira */
+    }
+
+    .countdown {
+      gap: 0.8rem;
+    }
+
+    .countdown__item {
+      min-width: 47%; /* Garante que fiquem 2 quadrados por linha num celular normal */
+      padding: 1.2rem 0.8rem;
+    }
+
+    /* 4. CRONOGRAMA MODERNO (Ajuste fino da linha para não esmagar o texto) */
+    .timeline-moderna::before {
+      left: 1.6rem; /* Puxa a linha mais para a esquerda */
+    }
+
+    .timeline-moderna__item {
+      padding-left: 4.8rem; /* Reduz o recuo do card para sobrar espaço */
+    }
+
+    .timeline-moderna__dot {
+      left: 0.9rem; /* Reajusta a bolinha base matematicamente sobre a nova linha */
+    }
+
+    .timeline-moderna__item--destaque .timeline-moderna__dot {
+      left: 0.1rem; /* Reajusta o ícone neon de destaque */
+    }
+
+    .timeline-moderna__card {
+      padding: 2rem 1.6rem; /* Remove excesso de vidro interno */
+    }
+
+    /* 5. PÓDIO NEON */
+    .podio-card {
+      padding: 2.4rem 1.6rem;
+    }
+
+    .podio-card__icon {
+      font-size: 4.8rem; /* Ícone de troféu ligeiramente menor */
+    }
+
+    /* 6. REGRAS DO EVENTO E VÍDEOS */
+    .card {
+      padding: 2.4rem 1.6rem;
+      align-items: center; /* Centraliza os itens do card para melhor simetria */
+      text-align: center;
+    }
+
+    .video-card__content {
+      padding: 1.6rem;
+    }
+
+    /* 7. CTA FINAL E RODAPÉ */
+    .cta-final {
+      padding: 4rem 1.6rem;
+    }
+
+    .footer {
+      padding: 4rem 1.6rem 2.4rem;
+    }
+
+    .footer__container {
+      gap: 3.2rem;
+    }
+  }
+
+  /* -------------------------------------------
+   CELULARES MUITO ESTREITOS (Até 360px)
+   Ex: iPhone SE antigo e celulares básicos
+------------------------------------------- */
+  @media (max-width: 360px) {
+    /* 1. ESCALA EXTREMA PARA NÃO QUEBRAR O LAYOUT */
+    html {
+      /* Reduz a base para 43.75% (1rem = ~7px). Blinda vazamentos horizontais! [7, 8] */
+      font-size: 43.75%;
+    }
+
+    /* 2. AJUSTE DO CABEÇALHO PARA NÃO ESPREMER O BOTÃO */
+    .header__container {
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    .header__logo-text {
+      font-size: 2.2rem;
+    }
+
+    .header .btn,
+    .nav__btn {
+      font-size: 1.4rem;
+      padding: 0.8rem 1.2rem;
+      max-width: 100%;
+      white-space: normal; /* Permite que o texto do botão quebre linha se for muito longo */
+      text-align: center;
+    }
+
+    /* 3. CRONÔMETRO DE COLUNA ÚNICA */
+    .countdown__item {
+      min-width: 100%; /* Força 1 item por linha se a tela for menor que 360px */
+    }
+  }
 }
