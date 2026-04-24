@@ -1160,6 +1160,24 @@ img {
     flex-direction: column;
     gap: 1.6rem;
   }
+  .regras .section__container {
+    flex-direction: column; /* Coloca o título em cima e a grade embaixo */
+    align-items: center;
+    gap: 4rem; /* Reduz o espaço gigante de 6rem do desktop */
+  }
+  /* Libera o título para ocupar 100% da tela e centraliza */
+  .regras .section__header {
+    min-width: 100%;
+    text-align: center;
+  }
+  .regras .section__title {
+    text-align: center; /* Centraliza o texto "O que você precisa saber" no mobile */
+  }
+
+  .regras .grid-cards {
+    grid-template-columns: 1fr; /* Mata a regra de 3 colunas e força 1 coluna única */
+    width: 100%;
+  }
 
   /* CTA Final: Empilhando e centralizando */
   .cta-final__container {
@@ -1181,6 +1199,11 @@ img {
   .footer__container {
     flex-direction: column;
     gap: 4rem;
+  }
+  .footer__logos {
+    flex-wrap: wrap; /* Permite que as logos desçam para a próxima linha [1, 2] */
+    overflow-x: visible; /* Desativa a rolagem horizontal que havíamos criado antes */
+    justify-content: center; /* Mantém as logos centralizadas [2] */
   }
 
   /* Pódio Neon Responsivo: Empilhando em Cards e Forçando a Ordem Lógica */
