@@ -15,7 +15,7 @@
   --glass-border: rgba(255, 255, 255, 0.08);
   --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
 
-  --font-principal: 'Poppins', sans-serif;
+  --font-principal: "Poppins", sans-serif;
   --radius-padrao: 1.6rem;
   --transicao: all 0.3s ease;
 }
@@ -240,7 +240,7 @@ img {
   align-items: center;
   padding-top: 8rem;
   /* background-image: url('/hackamarh-2026/assets/img/plano_fundo_hero6.png'); */
-  background-image: url('/hackamarh-2026/assets/img/lobo_guara.png');
+  background-image: url("/hackamarh-2026/assets/img/lobo_guara.png");
   background-size: cover;
   background-position: center bottom -20%;
   background-repeat: no-repeat;
@@ -414,7 +414,7 @@ img {
 
 /* Mantendo o seu separador de Barra Reta (|) */
 .countdown__item:not(:last-child)::after {
-  content: '|';
+  content: "|";
   position: absolute;
   right: -5vw;
   transform: translateX(50%) translateY(-50%);
@@ -534,13 +534,13 @@ img {
   position: relative;
 }
 .desafios::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('/hackamarh-2026/assets/img/fundo_simples.png');
+  background-image: url("/hackamarh-2026/assets/img/fundo_simples.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -696,39 +696,304 @@ img {
   color: var(--text-muted);
 }
 
-/* ===== SEÇÃO MESCLADA (CRONOGRAMA + PREMIAÇÃO) ===== */
-.cronograma-premiacao {
-  position: relative;
-  background-image: url('/hackamarh-2026/assets/img/cronograma.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+/* ==========================================================================
+   SEÇÃO CRONOGRAMA
+   ========================================================================== */
+
+.cronograma-dark {
   padding: 10rem 2rem;
+  position: relative;
+
+  /* 1. Combina a película escura (gradiente) e a imagem na mesma propriedade */
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(11, 15, 12, 0.9) 0%,
+      rgba(11, 15, 12, 0.4) 100%
+    ),
+    url("/hackamarh-2026/assets/img/fundo_podio.png");
+
+  /* 2. Boas práticas para a imagem se ajustar perfeitamente à tela */
+  background-size: cover; /* Faz a imagem cobrir toda a área da seção sem distorcer [3, 4] */
+  background-position: center; /* Centraliza o foco da imagem [4, 5] */
+  background-repeat: no-repeat; /* Evita que a imagem fique se repetindo como um mosaico [4, 6] */
 }
 
-/* O Segredo do Lado a Lado: Grid com 2 frações iguais */
-.grid-duplo {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* Divide o espaço em 50% e 50% automaticamente [1] */
-  gap: 4rem; /* Distância entre o cronograma e o pódio */
-  align-items: center; /* Alinha tudo ao centro da tela [3] */
+/* ==========================================
+   ESTRUTURA DA LINHA GUIA
+   ========================================== */
+.timeline-moderna {
+  max-width: 80rem;
+  margin: 6rem auto 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
 }
 
-/* Ajustes finos para fazer o pódio de 5 barras caber em meia tela */
-.coluna-premiacao .podio {
-  gap: 0.8rem; /* Reduz o espaço entre as barras */
+/* A Linha Vertical com leve brilho */
+.timeline-moderna::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 2.4rem; /* Posição à esquerda para ancorar a linha */
+  width: 0.2rem;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 255, 136, 0.1),
+    rgba(0, 255, 136, 0.4),
+    rgba(0, 255, 136, 0.1)
+  );
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.2);
+  z-index: 1;
 }
-.coluna-premiacao .podio__item {
-  max-width: 11rem; /* Encolhe levemente a largura da barra */
+
+/* ==========================================
+   ITENS E PONTOS (DOTS)
+   ========================================== */
+.timeline-moderna__item {
+  position: relative;
+  padding-left: 6.4rem; /* Espaço para não encostar na linha */
+  display: flex;
+  align-items: center;
+  z-index: 2;
 }
-.coluna-premiacao .podio__valor {
-  font-size: 1.8rem; /* Reduz as fontes dos valores para não vazar */
+
+/* O Ponto Básico da Timeline */
+.timeline-moderna__dot {
+  position: absolute;
+  left: 1.7rem; /* Centraliza o ponto matematicamente sobre a linha de 2.4rem */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background-color: #0b0f0c;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.coluna-premiacao .podio__coroa {
-  transform: scale(
-    0.75
-  ); /* Escala as coroas de louro em 75% do tamanho original para evitar que batam umas nas outras */
-  top: -4rem; /* Reajusta a altura por causa da escala */
+
+/* ==========================================
+   CARDS DE CONTEÚDO (GLASSMORPHISM)
+   ========================================== */
+.timeline-moderna__card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.6rem;
+  padding: 2.4rem;
+  width: 100%;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
+}
+
+.timeline-moderna__card:hover {
+  transform: translateY(-0.5rem);
+  box-shadow: 0 1.2rem 2.4rem rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.timeline-moderna__date {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #a9a9a9;
+  letter-spacing: 0.1rem;
+  display: block;
+  margin-bottom: 0.8rem;
+}
+
+.timeline-moderna__title {
+  font-size: 2.2rem;
+  color: #ffffff;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.timeline-moderna__desc {
+  font-size: 1.6rem;
+  color: #cccccc;
+  line-height: 1.5;
+}
+
+/* ==========================================
+   ⭐ DESTAQUE ESPECIAL (O HACKATHON)
+   ========================================== */
+
+/* Aumenta a escala do card do evento principal */
+.timeline-moderna__item--destaque .timeline-moderna__card {
+  transform: scale(1.03); /* Leve aumento de escala base */
+  border-color: var(--neon-green, #00ff88);
+  background: rgba(0, 255, 136, 0.05); /* Fundo levemente verde */
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.1);
+  border-left: 0.6rem solid var(--neon-green, #00ff88); /* Borda direcional forte */
+}
+
+/* Interação aprimorada no destaque */
+.timeline-moderna__item--destaque .timeline-moderna__card:hover {
+  transform: scale(1.05) translateY(-0.5rem);
+  box-shadow: 0 1.5rem 3rem rgba(0, 255, 136, 0.2);
+}
+
+/* Altera o Ponto para um Ícone Brilhante no Destaque */
+.timeline-moderna__item--destaque .timeline-moderna__dot {
+  width: 3.2rem;
+  height: 3.2rem;
+  left: 0.9rem; /* Reajuste matemático para o ícone maior centralizar na linha */
+  background-color: var(--neon-green, #00ff88);
+  border-color: var(--neon-green, #00ff88);
+  box-shadow: 0 0 15px var(--neon-green, #00ff88);
+}
+
+.timeline-moderna__item--destaque .timeline-moderna__dot i {
+  color: #0b0f0c; /* Ícone escuro para contrastar com o fundo verde neon */
+  font-size: 1.4rem;
+}
+
+/* ==========================================================================
+   SEÇÃO PREMIAÇÃO: PÓDIO EM CARDS
+   ========================================================================== */
+
+.premiacao-glow {
+  padding: 10rem 2rem;
+  background-color: #050706; /*Fundo super escuro para destacar o neon */
+  position: relative;
+}
+
+/* Contêiner principal do pódio */
+.podio-cards {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center; /* Alinha os cards pelo centro (efeito de órbita) */
+  gap: 2rem;
+  margin-top: 6rem;
+}
+
+/* Estrutura base de todos os cards */
+.podio-card {
+  background: rgba(255, 255, 255, 0.03); /* Glassmorphism base */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2.4rem;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ícones, Posições e Valores comuns */
+.podio-card__icon {
+  font-size: 4rem;
+  margin-bottom: 1.6rem;
+  transition: transform 0.3s ease;
+}
+
+.podio-card__posicao {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #a9a9a9; /* Cor mutada para dar foco ao 1º lugar */
+  letter-spacing: 0.1rem;
+  margin-bottom: 0.8rem;
+}
+
+.podio-card__valor {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+/* Interação global de Hover */
+.podio-card:hover {
+  transform: translateY(-1rem);
+  background: rgba(255, 255, 255, 0.06);
+}
+.podio-card:hover .podio-card__icon {
+  transform: scale(1.15);
+}
+
+/* ==========================================================================
+   HIERARQUIA VISUAL (TAMANHOS E DESTAQUES)
+   ========================================================================== */
+
+/* 1º LUGAR (MAIOR E NO CENTRO) */
+.podio-card--destaque {
+  width: 26rem;
+  height: 38rem;
+  z-index: 3;
+  border-color: var(--neon-green, #00ff88);
+  box-shadow:
+    0 0 30px rgba(0, 255, 136, 0.15),
+    inset 0 0 20px rgba(0, 255, 136, 0.05);
+  background: rgba(0, 255, 136, 0.05);
+}
+
+.podio-card--destaque .podio-card__icon {
+  font-size: 6rem;
+  color: var(--neon-green, #00ff88);
+  filter: drop-shadow(0 0 10px rgba(0, 255, 136, 0.5));
+}
+
+.podio-card--destaque .podio-card__posicao {
+  font-size: 2rem;
+}
+.podio-card--destaque .podio-card__valor {
+  font-size: 3.2rem;
+}
+
+/* Efeito de "Pedestal" apenas no 1º lugar */
+.podio-card__pedestal {
+  position: absolute;
+  bottom: -2rem;
+  width: 80%;
+  height: 4rem;
+  background: var(--neon-green, #00ff88);
+  filter: blur(25px);
+  opacity: 0.6;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+/* 2º e 3º LUGARES (MÉDIOS) */
+.podio-card--medio {
+  width: 22rem;
+  height: 30rem;
+  z-index: 2;
+}
+.podio-card--prata .podio-card__icon {
+  color: #c0c0c0;
+  filter: drop-shadow(0 0 8px rgba(192, 192, 192, 0.3));
+}
+.podio-card--bronze .podio-card__icon {
+  color: #cd7f32;
+  filter: drop-shadow(0 0 8px rgba(205, 127, 50, 0.3));
+}
+
+/* 4º e 5º LUGARES (MENORES) */
+.podio-card--menor {
+  width: 18rem;
+  height: 24rem;
+  z-index: 1;
+  opacity: 0.6; /* Deixa-os mais discretos */
+}
+.podio-card--menor:hover {
+  opacity: 1;
+}
+.podio-card--quarto .podio-card__icon,
+.podio-card--quinto .podio-card__icon {
+  color: #666;
 }
 
 /* ===== CTA FINAL ===== */
@@ -795,41 +1060,85 @@ img {
   text-align: center;
 }
 /* ===== FOOTER ===== */
+
 .footer {
   padding: 6.4rem 2rem 2.4rem;
-  margin-top: 6rem;
-  border-radius: 2.4rem 2.4rem 0 0;
-  border-bottom: none;
+  margin-top: 0; /* Garante colagem na seção anterior */
+  background-color: #050706; /* Fundo extremamente escuro */
+  border-top: 1px solid var(--glass-border);
+  border-radius: 0;
 }
+
+/* Novo layout empilhado (Coluna) para abrigar as 7 logos */
 .footer__container {
-  max-width: 1200px;
-  margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
+  gap: 4.8rem;
   margin-bottom: 4.8rem;
 }
-.footer__partners p {
-  font-size: 1.2rem;
-  color: var(--text-muted);
-  letter-spacing: 0.2rem;
-  margin-bottom: 1rem;
+
+.footer__brand {
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: var(--white);
+}
+
+.footer__partners {
+  width: 100%;
   text-align: center;
 }
-.footer__logos span {
+
+.footer__partners-title {
+  font-size: 1.4rem;
+  color: var(--text-muted);
+  letter-spacing: 0.2rem;
   font-weight: 700;
-  color: var(--white);
-  font-size: 1.6rem;
-  margin: 0 1rem;
+  margin-bottom: 2.4rem;
 }
+
+.footer__logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap; /* Permite que as logos pulem de linha no celular se faltar espaço */
+  gap: 4rem; /* Espaço confortável entre as logos */
+}
+
+/* O SEGREDO DO DESIGN: Filtros nas logos para o Dark Mode */
+.footer__logo {
+  height: 5rem; /* Altura padrão para as logos não ficarem desproporcionais */
+
+  /* Converte qualquer logo colorida em uma silhueta clara/cinza [1] */
+  filter: grayscale(100%) brightness(200%) opacity(0.6);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* Restaura as cores originais da marca no hover [2] */
+.footer__logo:hover {
+  filter: grayscale(0%) brightness(100%) opacity(1);
+  transform: scale(1.1); /* Leve aproximação 3D */
+}
+
 .footer__social {
   display: flex;
-  gap: 2rem;
-  font-size: 2.4rem;
+  gap: 2.4rem;
+  font-size: 2.8rem;
 }
+
+.footer__social a {
+  color: var(--text-muted);
+  transition: all 0.3s ease;
+}
+
+/* Mantendo o brilho Neon para coesão */
 .footer__social a:hover {
   color: var(--neon-green);
+  transform: translateY(-0.3rem);
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.4);
 }
+
 .footer__bottom {
   text-align: center;
   font-size: 1.3rem;
@@ -838,7 +1147,11 @@ img {
   padding-top: 2.4rem;
 }
 
-/* ===== RESPONSIVIDADE (MOBILE-FIRST ADAPTATIONS) ===== */
+/* ===== RESPONSIVIDADE ===== */
+
+/* -------------------------------------------
+   Telas Médias (Tablets) - Até 992px
+------------------------------------------- */
 @media (max-width: 992px) {
   .hero__title {
     font-size: 4.8rem;
@@ -847,6 +1160,8 @@ img {
     flex-direction: column;
     gap: 1.6rem;
   }
+
+  /* CTA Final: Empilhando e centralizando */
   .cta-final__container {
     flex-direction: column;
     text-align: center;
@@ -856,61 +1171,62 @@ img {
   .cta-final__text h2 {
     text-align: center;
   }
+  .cta-final__desc {
+    border-left: none; /* Tira a barra lateral no celular */
+    border-top: 1px solid var(--glass-border); /* Coloca uma linha no topo */
+    padding-left: 0;
+    padding-top: 2rem;
+  }
+
   .footer__container {
     flex-direction: column;
     gap: 4rem;
   }
 
-  /* Podio responsivo - Forçando a ordem lógica visual */
-  .podio {
-    flex-flow: column;
-    align-items: center;
-    gap: 3rem;
-    min-height: auto;
+  /* Pódio Neon Responsivo: Empilhando em Cards e Forçando a Ordem Lógica */
+  .podio-cards {
+    flex-flow: column nowrap;
+    gap: 2.4rem;
   }
-  .podio__item {
-    max-width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    text-align: left;
-    gap: 2rem;
+  .podio-card {
+    width: 100%;
+    max-width: 40rem;
+    height: auto;
+    padding: 3.2rem;
+    opacity: 1; /* Tira a transparência no celular para leitura clara */
   }
-  .podio__base {
-    display: none; /* Esconde o pedestal no celular para focar na informação */
-  }
-  .podio__item--ouro {
+
+  /* Reordenando via Flexbox do 1º ao 5º lugar */
+  .podio-card--ouro {
     order: 1;
-    border: 1px solid var(--neon-green);
-    padding: 2rem;
-    border-radius: 1.6rem;
-    background: var(--neon-green-dim);
   }
-  .podio__item--prata {
+  .podio-card--prata {
     order: 2;
-    border-bottom: 1px solid var(--glass-border);
-    padding-bottom: 1.5rem;
   }
-  .podio__item--bronze {
+  .podio-card--bronze {
     order: 3;
-    border-bottom: 1px solid var(--glass-border);
-    padding-bottom: 1.5rem;
   }
-  .podio__item--quarto {
+  .podio-card--quarto {
     order: 4;
-    border-bottom: 1px solid var(--glass-border);
-    padding-bottom: 1.5rem;
   }
-  .podio__item--quinto {
+  .podio-card--quinto {
     order: 5;
   }
-  .podio__valor {
-    margin-bottom: 0;
-    text-align: right;
+
+  /* Ajustando o brilho (glow) do pedestal do 1º lugar */
+  .podio-card__pedestal {
+    bottom: -1rem;
+    width: 90%;
+    height: 2rem;
+    filter: blur(15px);
   }
 }
 
+/* -------------------------------------------
+   Telas Pequenas (Celulares) - Até 768px
+------------------------------------------- */
 @media (max-width: 768px) {
+  /* Menu Mobile */
   .header__menu-btn {
     display: block;
   }
@@ -938,6 +1254,7 @@ img {
     font-size: 2.2rem;
   }
 
+  /* Hero & Botões */
   .hero__actions {
     flex-direction: column;
     width: 100%;
@@ -945,6 +1262,8 @@ img {
   .hero__actions .btn {
     width: 100%;
   }
+
+  /* Cronômetro Mobile */
   .countdown {
     flex-wrap: wrap;
     gap: 1rem;
@@ -963,16 +1282,23 @@ img {
   .section__title {
     font-size: 3.2rem;
   }
-  .timeline::before {
-    left: 1.6rem;
+
+  /* Cronograma Moderno (Stepper) Responsivo */
+  .timeline-moderna {
+    gap: 2.4rem;
   }
-  .timeline__item {
-    padding-left: 4.8rem;
+  .timeline-moderna__card {
+    padding: 2rem 1.6rem;
   }
-  .timeline__item::before {
-    left: 0.8rem;
-    width: 1.4rem;
-    height: 1.4rem;
-    top: 1.8rem;
+  .timeline-moderna__title {
+    font-size: 1.8rem;
+  }
+
+  /* O card do Hackathon perde a escala extra no celular para não esmagar as bordas da tela */
+  .timeline-moderna__item--destaque .timeline-moderna__card {
+    transform: scale(1);
+  }
+  .timeline-moderna__item--destaque .timeline-moderna__card:hover {
+    transform: translateY(-0.3rem);
   }
 }

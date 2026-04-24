@@ -286,7 +286,7 @@
               </div>
             </div>
           </div>
-          <!-- FECHAMENTO DA DIV "grid-desafios" (O botão precisa ficar abaixo desta linha!) -->
+      
 
           <!-- NOVO BOTÃO CENTRALIZADO -->
           <div class="desafios__actions" data-aos="fade-up">
@@ -295,7 +295,7 @@
             </a>
           </div>
         </div>
-        <!-- FECHAMENTO DA DIV "section__container" (Que estava faltando) -->
+
       </section>
 
       <!-- SEÇÃO VÍDEOS -->
@@ -314,12 +314,15 @@
           </div>
 
           <div class="grid-videos" data-aos="fade-up" data-aos-delay="200">
+  
+            <!-- VÍDEO 1 -->
             <div class="video-card glass-panel">
               <div class="video-card__iframe-wrapper">
                 <iframe
-                  src="https://www.youtube.com/embed/ScMzIvxBSi4"
+                  src="https://www.youtube.com/embed/h5vez2RewpE"
                   title="Pílula Eixo 1"
                   frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowfullscreen
                 ></iframe>
               </div>
@@ -331,12 +334,16 @@
                 </p>
               </div>
             </div>
+
+            <!-- VÍDEO 2 -->
             <div class="video-card glass-panel">
               <div class="video-card__iframe-wrapper">
+                <!-- O segundo vídeo também foi ajustado para 'embed' e manteve a sua playlist -->
                 <iframe
-                  src="https://www.youtube.com/embed/ScMzIvxBSi4"
+                  src="https://www.youtube.com/embed/sqzdtXBESXk?list=PL5Kc_bJj04FrQ29SQ_3kvg3G8d0FooV0e"
                   title="Pílula Eixo 2"
                   frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowfullscreen
                 ></iframe>
               </div>
@@ -350,98 +357,135 @@
                 </p>
               </div>
             </div>
+
           </div>
         </div>
       </section>
 
-      <!-- SEÇÃO MESCLADA: CRONOGRAMA + PREMIAÇÃO -->
-    <section class="section cronograma-premiacao" id="cronograma">
-      
-      <!-- Película escura para a imagem de fundo -->
-      <div class="cronograma__overlay"></div>
+      <!-- SEÇÃO PREMIAÇÃO -->
+      <section class="section premiacao-glow" id="premiacao">
+        <div class="section__container">
+          
+          <header class="section__header text-center" data-aos="fade-up">
+            <p class="section__kicker">RECONHECIMENTO</p>
+            <h2 class="section__title">
+              As 5 melhores equipes serão <span class="text-neon">premiadas!</span>
+            </h2>
+          </header>
 
-      <!-- Contêiner dividido em 2 colunas -->
-      <div class="section__container grid-duplo" style="position: relative; z-index: 2;">
-        
-        <!-- LADO ESQUERDO: CRONOGRAMA -->
-        <div class="coluna-cronograma" data-aos="fade-right">
-          <div class="section__header text-left">
+          <!-- Contêiner Flex do Pódio em Cards -->
+          <div class="podio-cards" data-aos="zoom-in" data-aos-delay="200">
+            
+            <!-- 4º LUGAR -->
+            <article class="podio-card podio-card--menor podio-card--quarto">
+              <div class="podio-card__icon"><i class="fa-solid fa-medal"></i></div>
+              <h3 class="podio-card__posicao">4º LUGAR</h3>
+              <p class="podio-card__valor">R$ 3.000</p>
+            </article>
+
+            <!-- 2º LUGAR -->
+            <article class="podio-card podio-card--medio podio-card--prata">
+              <div class="podio-card__icon"><i class="fa-solid fa-medal"></i></div>
+              <h3 class="podio-card__posicao">2º LUGAR</h3>
+              <p class="podio-card__valor">R$ 8.000</p>
+            </article>
+
+            <!-- 1º LUGAR (DESTAQUE CENTRAL) -->
+            <article class="podio-card podio-card--destaque podio-card--ouro">
+              <div class="podio-card__icon"><i class="fa-solid fa-trophy"></i></div>
+              <h3 class="podio-card__posicao text-neon">1º LUGAR</h3>
+              <p class="podio-card__valor text-neon">R$ 12.000</p>
+              <!-- Pedestal Brilhante (Glow) exclusivo do 1º lugar -->
+              <div class="podio-card__pedestal"></div>
+            </article>
+
+            <!-- 3º LUGAR -->
+            <article class="podio-card podio-card--medio podio-card--bronze">
+              <div class="podio-card__icon"><i class="fa-solid fa-medal"></i></div>
+              <h3 class="podio-card__posicao">3º LUGAR</h3>
+              <p class="podio-card__valor">R$ 5.000</p>
+            </article>
+
+            <!-- 5º LUGAR -->
+            <article class="podio-card podio-card--menor podio-card--quinto">
+              <div class="podio-card__icon"><i class="fa-solid fa-medal"></i></div>
+              <h3 class="podio-card__posicao">5º LUGAR</h3>
+              <p class="podio-card__valor">R$ 2.000</p>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+          <!-- SEÇÃO CRONOGRAMA (TIMELINE DARK & GLOW) -->
+      <section class="section cronograma-dark" id="cronograma">
+        <div class="section__container">
+          
+          <header class="section__header text-center" data-aos="fade-up">
             <p class="section__kicker">CRONOGRAMA OFICIAL</p>
-            <h2 class="section__title">Datas <span class="text-neon">Importantes</span></h2>
-          </div>
+            <h2 class="section__title">
+              Datas <span class="text-neon">Importantes</span>
+            </h2>
+          </header>
 
-          <div class="timeline">
-            <div class="timeline__item">
-              <div class="timeline__date">30/04/2026</div>
-              <div class="timeline__content glass-panel">Publicação do Edital Conjunto</div>
-            </div>
-            <div class="timeline__item">
-              <div class="timeline__date">01 a 21/05/2026</div>
-              <div class="timeline__content glass-panel">Período de Inscrições Online</div>
-            </div>
-            <div class="timeline__item">
-              <div class="timeline__date">25/05/2026</div>
-              <div class="timeline__content glass-panel">Homologação Oficial das Equipes</div>
-            </div>
-            <div class="timeline__item timeline__item--highlight">
-              <div class="timeline__date text-neon">29 a 31/05/2026</div>
-              <div class="timeline__content glass-panel border-neon">Maratona HACKAMARH (Presencial)</div>
-            </div>
-            <div class="timeline__item">
-              <div class="timeline__date">A Definir</div>
-              <div class="timeline__content glass-panel">Cerimônia de Premiação</div>
-            </div>
-          </div>
-        </div>
+          <!-- Contêiner Principal da Timeline -->
+          <div class="timeline-moderna" data-aos="fade-up" data-aos-delay="200">
+            
+            <!-- ITEM 1 -->
+            <article class="timeline-moderna__item">
+              <div class="timeline-moderna__dot"></div>
+              <div class="timeline-moderna__card">
+                <time class="timeline-moderna__date">30/04/2026</time>
+                <h3 class="timeline-moderna__title">Publicação do Edital</h3>
+                <p class="timeline-moderna__desc">Lançamento das regras gerais e detalhamento dos desafios do eixo JREDD+ e Restauração Ecológica.</p>
+              </div>
+            </article>
 
-        <!-- LADO DIREITO: PREMIAÇÃO -->
-        <div class="coluna-premiacao" data-aos="fade-left">
-          <div class="section__header text-center">
-            <p class="section__kicker">PREMIAÇÃO</p>
-            <h2 class="section__title">As 5 melhores equipes serão <span class="text-neon">premiadas!</span></h2>
-          </div>
+            <!-- ITEM 2 -->
+            <article class="timeline-moderna__item">
+              <div class="timeline-moderna__dot"></div>
+              <div class="timeline-moderna__card">
+                <time class="timeline-moderna__date">01 a 21/05/2026</time>
+                <h3 class="timeline-moderna__title">Inscrições Online</h3>
+                <p class="timeline-moderna__desc">Período para submissão dos times e perfis de Tecnologia, Design e Negócios.</p>
+              </div>
+            </article>
 
-          <div class="podio">
-            <div class="podio__item podio__item--quarto">
-              <p class="podio__posicao">4º LUGAR</p>
-              <p class="podio__valor">R$ 3.000</p>
-              <div class="podio__base">
-                <div class="podio__coroa"><i class="fa-solid fa-award"></i><span class="podio__numero">4</span></div>
+            <!-- ITEM 3 -->
+            <article class="timeline-moderna__item">
+              <div class="timeline-moderna__dot"></div>
+              <div class="timeline-moderna__card">
+                <time class="timeline-moderna__date">25/05/2026</time>
+                <h3 class="timeline-moderna__title">Homologação Oficial</h3>
+                <p class="timeline-moderna__desc">Divulgação da lista oficial das equipes validadas e aptas a participar da maratona.</p>
               </div>
-            </div>
-            <div class="podio__item podio__item--prata">
-              <p class="podio__posicao">2º LUGAR</p>
-              <p class="podio__valor">R$ 8.000</p>
-              <div class="podio__base">
-                <div class="podio__coroa"><i class="fa-solid fa-award"></i><span class="podio__numero">2</span></div>
+            </article>
+
+            <!-- ITEM 4 (DESTAQUE PRINCIPAL) -->
+            <article class="timeline-moderna__item timeline-moderna__item--destaque">
+              <div class="timeline-moderna__dot">
+                <i class="fa-solid fa-code"></i> <!-- Ícone extra para destaque -->
               </div>
-            </div>
-            <div class="podio__item podio__item--ouro">
-              <p class="podio__posicao text-neon">1º LUGAR</p>
-              <p class="podio__valor text-neon">R$ 12.000</p>
-              <div class="podio__base">
-                <div class="podio__coroa"><i class="fa-solid fa-award"></i><span class="podio__numero">1</span></div>
+              <div class="timeline-moderna__card">
+                <time class="timeline-moderna__date text-neon">29 a 31/05/2026</time>
+                <h3 class="timeline-moderna__title">Maratona HACKAMARH</h3>
+                <p class="timeline-moderna__desc">Três dias intensos de imersão presencial, ideação, mentorias técnicas, desenvolvimento e apresentação do Demoday!</p>
               </div>
-            </div>
-            <div class="podio__item podio__item--bronze">
-              <p class="podio__posicao">3º LUGAR</p>
-              <p class="podio__valor">R$ 5.000</p>
-              <div class="podio__base">
-                <div class="podio__coroa"><i class="fa-solid fa-award"></i><span class="podio__numero">3</span></div>
+            </article>
+
+            <!-- ITEM 5 -->
+            <article class="timeline-moderna__item">
+              <div class="timeline-moderna__dot"></div>
+              <div class="timeline-moderna__card">
+                <time class="timeline-moderna__date">A Definir</time>
+                <h3 class="timeline-moderna__title">Cerimônia de Premiação</h3>
+                <p class="timeline-moderna__desc">Oscar do ICMS Ecológico e entrega das premiações aos grandes vencedores.</p>
               </div>
-            </div>
-            <div class="podio__item podio__item--quinto">
-              <p class="podio__posicao">5º LUGAR</p>
-              <p class="podio__valor">R$ 2.000</p>
-              <div class="podio__base">
-                <div class="podio__coroa"><i class="fa-solid fa-award"></i><span class="podio__numero">5</span></div>
-              </div>
-            </div>
+            </article>
+
           </div>
         </div>
-
-      </div>
-    </section>
+      </section>
 
       <!-- CTA FINAL -->
       <section class="section cta-final" data-aos="fade-up">
@@ -479,25 +523,38 @@
 
     <!-- RODAPÉ -->
     <footer class="footer glass-panel">
-      <div class="footer__container">
-        <div class="footer__brand">
-          <span class="header__logo-text"
-            >HACKA<span class="text-neon">MARH</span></span
-          >
+      <div class="section__container footer__container">
+        
+        <!-- BLOCO 1: MARCA -->
+        <div class="footer__brand text-center">
+          <span class="header__logo-text">HACKA<span class="text-neon">MARH</span></span>
         </div>
+        
+        <!-- BLOCO 2: PARCEIROS (COM AS LOGOS) -->
         <div class="footer__partners">
-          <p>REALIZAÇÃO E PARCEIROS</p>
+          <p class="footer__partners-title">REALIZAÇÃO E PARCEIROS</p>
           <div class="footer__logos">
-            <span>SEMARH</span> • <span>UNITINS</span> • <span>FAPTO</span> •
-            <span>ATI</span>
+            <!-- Substitua o 'src' pelo caminho real das suas imagens -->
+            <img src="/hackamarh-2026/assets/icons/logo_semarh.png" alt="SEMARH" class="footer__logo">
+            <img src="/hackamarh-2026/assets/icons/logo_fapt.png" alt="FAPT" class="footer__logo">
+            <img src="/hackamarh-2026/assets/icons/logo_unitins.png" alt="UNITINS" class="footer__logo">
+            <img src="/hackamarh-2026/assets/icons/logo_ati.png" alt="ATI" class="footer__logo">
+            <img src="/hackamarh-2026/assets/icons/logo_cibrasil.png" alt="CI-Brasil" class="footer__logo">
+            <img src="/hackamarh-2026/assets/icons/logo_sebrae.png" alt="SEBRAE" class="footer__logo">
+            <img src="/hackamarh-2026/assets/icons/logo_fapto.png" alt="FAPTO" class="footer__logo">
           </div>
         </div>
+        
+        <!-- BLOCO 3: REDES SOCIAIS -->
         <div class="footer__social">
-          <a href="#"><i class="fa-brands fa-instagram"></i></a>
-          <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-          <a href="#"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://www.instagram.com/semarhtocantins/"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.to.gov.br/semarh"><i class="fa-solid fa-globe"></i></a>
+          <a href="https://www.youtube.com/@REDDTocantins"><i class="fa-brands fa-youtube"></i></a>
         </div>
+
       </div>
+      
+      <!-- DIREITOS AUTORAIS -->
       <div class="footer__bottom">
         <p>&copy; 2026 HACKAMARH — Todos os direitos reservados.</p>
       </div>
